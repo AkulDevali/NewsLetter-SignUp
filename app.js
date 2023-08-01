@@ -1,4 +1,5 @@
 // jshint esversion:6
+require('dotenv').config()
 const express = require('express');
 const request = require('request');
 const app = express();
@@ -33,7 +34,7 @@ app.post("/",function(req,res){
   const url = "https://us12.api.mailchimp.com/3.0/lists/13aa98d473";
   const options ={
     method: "POST",
-    auth: "akul:1396233eae91398e0f6362595f88414d-us12"
+    auth: "akul:" + process.env.API_KEY
   };
 
   const request=https.request(url,options,function(response){
